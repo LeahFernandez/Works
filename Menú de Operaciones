@@ -1,0 +1,71 @@
+# Works
+import java.io.*;
+import java.math.*;
+
+public class ejercicio_19r {
+
+	public static void main(String args[]) throws IOException {
+		BufferedReader bufEntrada = new BufferedReader(new InputStreamReader(System.in));
+		double n1;
+		double n2;
+		int op;
+		double res;
+		System.out.println("Opciones");
+		System.out.println("1: Multiplicaci�n");
+		System.out.println("2: Divisi�n");
+		System.out.println("3: Suma");
+		System.out.println("4: Resta");
+		System.out.println("5: Ra�z");
+		System.out.println("6: Potencia");
+		System.out.println("7: Salir");
+		System.out.println("Seleccione una opcion");
+		op = 0;
+		while (op<7) {
+			op = Integer.parseInt(bufEntrada.readLine());
+			if (op<7) {
+				System.out.println("Ingrese dos n�meros");
+				n1 = Double.parseDouble(bufEntrada.readLine());
+				n2 = Double.parseDouble(bufEntrada.readLine());
+				switch (op) {
+				case 1:
+					res = n1*n2;
+					System.out.println("Resultado "+res);
+					System.out.println("Seleccione otra opcion");
+					break;
+				case 2:
+					res = n1/n2;
+					System.out.println("Resultado "+res);
+					System.out.println("Seleccione otra opcion");
+					break;
+				case 3:
+					res = n1+n2;
+					System.out.println("Resultado "+res);
+					System.out.println("Seleccione otra opcion");
+					break;
+				case 4:
+					res = n1-n2;
+					System.out.println("Resultado "+res);
+					System.out.println("Seleccione otra opcion");
+					break;
+				case 5:
+					res = Math.sqrt(n1+n2);
+					System.out.println("Resultado "+res);
+					System.out.println("Seleccione otra opcion");
+					break;
+				case 6:
+					res = Math.pow(n1,n2);
+					System.out.println("Resultado "+res);
+					System.out.println("Seleccione otra opcion");
+					break;
+				case 7:
+					System.out.println("Que tengas buen d�a");
+					break;
+				}
+			} else {
+				System.out.println("Que tenga buen d�a");
+			}
+		}
+	}
+
+
+}
