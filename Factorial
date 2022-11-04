@@ -1,0 +1,29 @@
+# Works
+import java.io.*;
+
+public class ejercicio_8f {
+
+	public static int factor(int num) {
+		int cont;
+		int f;
+		cont = 0;
+		f = 1;
+		do {
+			cont = cont+1;
+			f = f*cont;
+		} while (cont!=num);
+		return f;
+	}
+
+	public static void main(String args[]) throws IOException {
+		BufferedReader bufEntrada = new BufferedReader(new InputStreamReader(System.in));
+		int acum;
+		int nu;
+		System.out.println("Ingrese un n�mero para conocer su factorial");
+		nu = Integer.parseInt(bufEntrada.readLine());
+		acum = factor(nu);
+		System.out.println("El factorial de "+nu+" es "+acum);
+	}
+
+
+}
