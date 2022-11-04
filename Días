@@ -1,0 +1,87 @@
+# Works
+import java.io.*;
+
+public class ejercicio_11_y_12f {
+
+	public static boolean validar(double dia, String mes, String an) {
+		boolean v;
+		if (dia<1 || dia>ddm(mes,an)) {
+			v = false;
+		} else {
+			v = true;
+		}
+		return v;
+	}
+
+	public static boolean esbisiesto(double an) {
+		boolean b;
+		if (an%4==0 && an%100!=0 || an%400==0) {
+			b = true;
+		} else {
+			b = false;
+		}
+		return b;
+	}
+
+	public static int ddm(int mes, String an) {
+		int dias;
+		switch (mes) {
+		case 1: case 3: case 5: case 7: case 8: case 10: case 12:
+			dias = 31;
+			break;
+		case 4: case 6: case 9: case 11:
+			dias = 30;
+			break;
+		case 2:
+			if (esbisiesto(an)) {
+				dias = 29;
+			} else {
+				dias = 28;
+			}
+			break;
+		default:
+			dias = 0;
+		}
+		return dias;
+	}
+
+	public static int juliano(double dia, double mes, String ann) {
+		int cont;
+		int j;
+		j = 0;
+		for (cont=0;cont<=mes-1;cont++) {
+			j = j+ddm(cont,ann);
+		}
+		j = j+dia;
+		return j;
+	}
+
+	public static void lf(String d, String m, String a) throws IOException {
+		BufferedReader bufEntrada = new BufferedReader(new InputStreamReader(System.in));
+		boolean fv;
+		do {
+			System.out.print("Ingrese el d�a");
+			d = bufEntrada.readLine();
+			System.out.print("Ingrese el mes");
+			m = bufEntrada.readLine();
+			System.out.print("Ingresa el a�o");
+			a = bufEntrada.readLine();
+			fv = validar(d,m,a);
+			if (!fv) {
+				System.out.println("Fecha incorrecta");
+			}
+		} while (!(fv));
+	}
+
+	public static void main(String args[]) {
+		int aa;
+		int dd;
+		int dj;
+		int mm;
+		lf(dd,mm,aa);
+		dj = juliano(dd,mm,aa);
+		System.out.println("El d�a juliano es "+dj);
+	}
+
+
+}
