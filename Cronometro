@@ -1,0 +1,48 @@
+# Works
+import java.io.*;
+
+public class ejercicio_18r {
+
+	public static void main(String args[]) throws IOException, InterruptedException {
+		BufferedReader bufEntrada = new BufferedReader(new InputStreamReader(System.in));
+		int hor;
+		int min;
+		int seg;
+		System.out.println("Ingresa las horas");
+		hor = Integer.parseInt(bufEntrada.readLine());
+		System.out.println("Ingresa los minutos");
+		min = Integer.parseInt(bufEntrada.readLine());
+		System.out.println("Ingresa los segundos");
+		seg = Integer.parseInt(bufEntrada.readLine());
+		while (hor>=0) {
+			while (min>=0) {
+				while (seg>=0) {
+					System.out.println(""); // no hay forma directa de borrar la consola en Java
+					if (hor>9) {
+						System.out.print(hor);
+					} else {
+						System.out.print("0"+hor);
+					}
+					if (min>9) {
+						System.out.print(":"+min);
+					} else {
+						System.out.print(":0"+min);
+					}
+					if (seg>9) {
+						System.out.println(":"+seg);
+					} else {
+						System.out.println(":0"+seg);
+					}
+					Thread.sleep(1*1000);
+					seg = seg-1;
+				}
+				seg = 59;
+				min = min-1;
+			}
+			min = 59;
+			hor = hor-1;
+		}
+	}
+
+
+}
