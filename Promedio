@@ -1,0 +1,49 @@
+# Works
+import java.io.*;
+
+public class ejercicio_3a {
+
+	public static void main(String args[]) throws IOException {
+		BufferedReader bufEntrada = new BufferedReader(new InputStreamReader(System.in));
+		int cont;
+		double may;
+		int med;
+		double men;
+		double nota;
+		double num;
+		double prom;
+		double vec[];
+		vec = new double[5];
+		may = 0;
+		men = 0;
+		nota = 0;
+		for (cont=0;cont<=4;cont++) {
+			System.out.print("Ingrese la nota del alumno");
+			vec[cont] = Double.parseDouble(bufEntrada.readLine());
+			may = vec[cont];
+			men = vec[cont];
+		}
+		for (cont=0;cont<=4;cont++) {
+			num = vec[cont];
+			if (num>may) {
+				may = num;
+			} else {
+				if (num<men) {
+					men = num;
+				}
+			}
+		}
+		for (cont=0;cont<=4;cont++) {
+			System.out.println("Notas: "+vec[cont]);
+		}
+		System.out.println("La nota m�s alta es "+may);
+		System.out.println("La nota m�s baja es "+men);
+		for (med=0;med<=4;med++) {
+			nota = nota+vec[med];
+		}
+		prom = nota/5;
+		System.out.print("La media es: "+prom);
+	}
+
+
+}
